@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@color/fragment_color"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/texthistory"
+        android:textColor="@android:color/secondary_text_dark_nodisable"
+        android:textSize="50dp"
+        android:text="History"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        />
+
+    
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/areatext"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:hint="History"
+        android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+        />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/pastwinlose"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:hint="Past win/lose"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/ministry"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:hint="Ministry"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitbtn3"
+        android:gravity="center"
+        android:text="Submit"
+        android:layout_below="@+id/ministry"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimaryDark"/>
+
+</LinearLayout>

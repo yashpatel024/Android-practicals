@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">frgmnt</string>
+
+    <string name="party_prompt">BJP</string>
+
+    <string-array name="party_arrays">
+        <item>BJP</item>
+        <item>INC</item>
+        <item>AAP</item>
+    </string-array>
+</resources>

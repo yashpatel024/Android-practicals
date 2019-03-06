@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@color/fragment_color"
+    android:layout_margin="10dp">
+
+    <Spinner
+        android:layout_gravity="center"
+        android:id="@+id/droplistparty"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/party_arrays"
+        android:prompt="@string/party_prompt"
+        android:textAlignment="center"
+        android:background="@color/fragment_color"
+        android:outlineAmbientShadowColor="@color/colorPrimary"
+        android:layout_marginTop="50dp"
+        ></Spinner>
+
+    <ImageView
+        android:id="@+id/partylogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/bjp"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:id="@+id/buttonLoadPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Load Picture"
+        android:layout_gravity="center"></Button>
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"></ImageView>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitbtn2"
+        android:gravity="center"
+        android:text="Next"
+        android:layout_below="@+id/buttonLoadPicture"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimaryDark"/>
+
+</LinearLayout>
