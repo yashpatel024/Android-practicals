@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     android:gravity="center"
-android:background="@color/fragment_color"    >
+android:background="@color/fragment_color"  >
 
     <Button
         android:id="@+id/signup"
