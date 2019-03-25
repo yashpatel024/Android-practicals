@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -24,43 +25,23 @@ public class fragment1 extends Fragment {
     private interfaceA listenerA;
 
     public interface interfaceA{
-        void passDataA(Bundle bundle);
+        void passDataA(String candidname, String age, String sex, String education);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment1,container,false);
         Button submitbtn1=(Button)view.findViewById(R.id.submitbtn1);
+        final TextInputEditText name=(TextInputEditText)view.findViewById(R.id.inputtextname);
+        final TextInputEditText age=(TextInputEditText)view.findViewById(R.id.inputtextage);
+        final RadioGroup sexgroup=(RadioGroup)view.findViewById(R.id.radiobtn);
+        final TextInputEditText education=(TextInputEditText)view.findViewById(R.id.inputtesteducation);
 
         submitbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                TextView name=(TextView)view.findViewById(R.id.inputtextname);
-                TextView age=(TextView)view.findViewById(R.id.inputtextage);
-                RadioGroup sexgroup=(RadioGroup)view.findViewById(R.id.radiobtn);
-                TextView education=(TextView)view.findViewById(R.id.inputtesteducation);
-
-                String nameofcandidate = (String) name.getText();
-                String ageofcandidate=(String)age.getText();
-                String educationcandidate=(String)education.getText();
-
                 int selectedid=sexgroup.getCheckedRadioButtonId();
                 RadioButton checkedbtn =(RadioButton)view.findViewById(selectedid);
-                String sexofcandidate= (String) checkedbtn.getText();
-
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                fragment2 fragment2obj = new fragment2();
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.replace(R.id.fragmentlayout, fragment2obj);
-                fragmentTransaction.commit();
-
-                Bundle bundle= new Bundle();
-                bundle.putString("name",nameofcandidate);
-                bundle.putString("age",ageofcandidate);
-                bundle.putString("sex",sexofcandidate);
-                bundle.putString("education",educationcandidate);
-                listenerA.passDataA(bundle);
+                listenerA.passDataA(name.getText().toString(),age.getText().toString(),checkedbtn.getText().toString(),education.getText().toString());
             }
         });
 
@@ -74,7 +55,6 @@ public class fragment1 extends Fragment {
         if(context instanceof interfaceA)
             listenerA = (interfaceA) context;
         else throw new RuntimeException(context.toString()+"must implement Fragment 1 listener");
-
     }
 
     @Override

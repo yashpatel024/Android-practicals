@@ -1,5 +1,6 @@
 package com.example.frgmnt;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,23 +17,29 @@ import android.widget.Spinner;
 
 public class fragment2 extends Fragment {
     @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment2,container,false);
-        Spinner spinner=(Spinner)view.findViewById(R.id.droplistparty);
 
-        Button submitbtn2=(Button)view.findViewById(R.id.submitbtn2);
-        ImageView partyimage=(ImageView)view.findViewById(R.id.partylogo);
-        String partyname = String.valueOf(spinner.getSelectedItem());
-        if(partyname == "BJP"){
+    private interfaceB listenerB;
+
+    public interface interfaceB {
+        void passDataB(String partyname);
+    }
+
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment2, container, false);
+        Spinner spinner = (Spinner) view.findViewById(R.id.droplistparty);
+
+        Button submitbtn2 = (Button) view.findViewById(R.id.submitbtn2);
+        ImageView partyimage = (ImageView) view.findViewById(R.id.partylogo);
+        final String partyname = String.valueOf(spinner.getSelectedItem());
+        if (partyname == "BJP") {
             partyimage.setImageResource(R.drawable.bjp);
-        }else if(partyname == "INC"){
+        } else if (partyname == "INC") {
             partyimage.setImageResource(R.drawable.congress);
-        }else if(partyname == "AAP"){
+        } else if (partyname == "AAP") {
             partyimage.setImageResource(R.drawable.aap);
         }
 
-        Button buttonload=(Button)view.findViewById(R.id.buttonLoadPicture);
+        Button buttonload = (Button) view.findViewById(R.id.buttonLoadPicture);
         /*buttonload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,13 +51,8 @@ public class fragment2 extends Fragment {
         submitbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                listenerB.passDataB(partyname);
 
-
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                fragment3 fragment3obj = new fragment3();
-                fragmentTransaction.replace(R.id.fragmentlayout, fragment3obj);
-                fragmentTransaction.commit();
             }
         });
 
@@ -75,4 +77,19 @@ public class fragment2 extends Fragment {
 
             // String picturePath contains the path of selected Image
         }*/
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if(context instanceof fragment2.interfaceB)
+            listenerB = (interfaceB) context;
+        else throw new RuntimeException(context.toString()+"must implement Fragment 2 listener");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listenerB = null;
+    }
 }

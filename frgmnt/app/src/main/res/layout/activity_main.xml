@@ -12,12 +12,12 @@ android:background="@color/fragment_color"  >
 
     <Button
         android:id="@+id/signup"
-        android:layout_width="180dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Sign-up"
         android:textColor="@android:color/white"
         tools:ignore="MissingConstraints"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:layout_marginBottom="20dp"
         android:textStyle="italic"
         android:background="@color/colorPrimaryDark"
@@ -26,10 +26,10 @@ android:background="@color/fragment_color"  >
     <Button
         android:layout_marginTop="20dp"
         android:id="@+id/login"
-        android:layout_width="180dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:textStyle="italic"
         android:textColor="@android:color/white"
         tools:ignore="MissingConstraints"
